@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <title>Word Counter</title>
+    <style>
+      .a_cont
+      {
+        border:2px solid black;
+        height: 50px;
+        width: 70%;
+        margin-top: 10px;
+        background-color: #6f42c1;
+      }
+      .a_h1{
+        padding-left: 120px;
+        color: #fff;
+      }
+      .b_cont
+      {
+        width: 70%;
+        padding: 0px;
+      }
+      .a_textarea{
+      border:2px solid black;
+      height: 400px; 
+      width: 100%;
+      margin-bottom: -7px;
+      }
+      .c_cont
+      {
+        border:2px solid black;
+        width: 70%;
+        margin-bottom: 20px;
+      }
+      .row{
+        height: 50px;
+      }
+      .row .col-md-6{
+        background-color: #f8f9fa;
+        color: #6f42c1;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid a_cont">
+      <h1 class="a_h1">Word Counter</h1>
+    </div>
+    <div class="container-fluid b_cont">
+        <textarea  class="a_textarea" placeholder="Enter your text here..."></textarea>
+    </div>
+    <div class="container-fluid c_cont">
+        <div class="output row">
+            <div class="col-md-6">Words: <span id="wordCount">0</span></div>
+            <div class="col-md-6">Sentences: <span id="sentenceCount">0</span></div>
+        </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+
+
+    var input = document.querySelectorAll('textarea')[0];
+
+    input.addEventListener('keyup', function() {
+    	var input = document.querySelectorAll('textarea')[0];
+
+      // word counter logic
+      	var words = input.value.match(/\b[-?(\w+)?]+\b/gi);
+
+      	wordCount.innerHTML = words.length;
+      // sentence count logic
+       if (words) {
+        	var sentences = input.value.split(/[.|!|?]+/g);
+        	console.log(sentences);
+        	sentenceCount.innerHTML = sentences.length;
+        	sentenceCount.innerHTML = sentences.length - 1;
+      	} else {
+        	sentenceCount.innerHTML = 0;
+      	}
+
+    });
+    </script>
+  </body>
+</html>
